@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 10px 30px;
+  text-align: center;
+}
+
+tr {
+  border-bottom: 1px;
+  border-bottom: solid 1px black;
+}
+
+thead th {
+  background-color: rgb(223, 115, 214);
+}
+
+tbody td {
+  background-color: blanchedalmond;
+}
+
+.hidden{
+  display: none;
+}
+
+.block-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.block-icon i {
+  width: 12%;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aqua;
+  border-radius: 10px;
+  margin-bottom: 2px;
+}
+
+.header button {
+  background-color: greenyellow;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.header> :first-child,
+.header> :last-child {
+  margin: 20px;
+}
+
+.header div {
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .add{
+  background-color: greenyellow;
+}
+.header .deleteAll{
+  background-color: #e04949;
+}
+
+.header a {
+  text-decoration: none;
+  padding: 13px 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: green;
+  color: white;
+  margin-top: 2px;
+}
+
+.footer p {
+  margin-left: 5px;
+}
+
+.panigation {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 5px;
+}
+
+.panigation div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px white;
+  width: 50px;
+  height: 35px;
+  margin-left: 1px;
+  cursor: pointer;
+}
+
+.panigation> :first-child,
+.panigation> :last-child {
+  width: 100px;
+  height: 35px;
+}

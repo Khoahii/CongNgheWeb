@@ -1,0 +1,83 @@
+ body {
+   font-family: Arial, sans-serif;
+   background-color: #f4f7f6;
+   margin: 0;
+   padding: 0;
+ }
+
+ h1 {
+   text-align: center;
+   color: #333;
+   margin-top: 30px;
+ }
+
+ form {
+   width: 40%;
+   margin: 0 auto;
+   background-color: #ffffff;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ label {
+   font-size: 16px;
+   color: #333;
+   display: block;
+   margin-bottom: 5px;
+ }
+
+ input,
+ select,
+ button {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 15px;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+
+ input:focus,
+ select:focus,
+ button:focus {
+   border-color: #5e9dff;
+   outline: none;
+ }
+
+ button {
+   background-color: #4CAF50;
+   color: white;
+   font-size: 16px;
+   cursor: pointer;
+   border: none;
+   transition: background-color 0.3s ease;
+ }
+
+ button:hover {
+   background-color: #45a049;
+ }
+
+ a {
+   display: block;
+   text-align: center;
+   margin-top: 20px;
+   font-size: 16px;
+   color: #007BFF;
+   text-decoration: none;
+ }
+
+ a:hover {
+   text-decoration: underline;
+ }
+
+ .hidden{
+  display: none;
+ }
+
+ /* Responsive Design */
+ @media (max-width: 600px) {
+   form {
+     width: 90%;
+   }
+ }
