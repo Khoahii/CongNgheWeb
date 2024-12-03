@@ -84,4 +84,10 @@ $flowers = array (
     'description' => 'Mô tả hoa hòe',
     'image' => 'images/440778028_812776654233435_3330112819668192056_n.jpg',
   ),
+  14 => 
+  array (
+    'name' => 'a',
+    'description' => 's',
+    'image' => 'images/girl.jpg',
+  ),
 );
