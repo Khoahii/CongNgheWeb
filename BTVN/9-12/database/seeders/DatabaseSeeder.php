@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
             //-bai2
             RentersTableSeeder::class,
             LaptopsTableSeeder::class,
+
+            //-bai3
+            ItCentersTableSeeder::class,
+            HardwareDevicesTableSeeder::class,
         ]);
     }
 }
