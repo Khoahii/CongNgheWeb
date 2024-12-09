@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
             //-bai3
             ItCentersTableSeeder::class,
             HardwareDevicesTableSeeder::class,
+
+            //-bai4
+            MovieSeeder::class,
+            CinemaSeeder::class
         ]);
     }
 }
