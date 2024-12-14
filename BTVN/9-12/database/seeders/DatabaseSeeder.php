@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
             //-bai4
             MovieSeeder::class,
-            CinemaSeeder::class
+            CinemaSeeder::class,
         ]);
     }
 }
