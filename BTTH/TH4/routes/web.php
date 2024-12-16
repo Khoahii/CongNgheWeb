@@ -15,3 +15,5 @@ Route::post('/issue/create', [IssueController::class, 'createIssuePost'])->name(
 //-/issue/delete/{id}
 Route::delete('/issue/delete/{id}', [IssueController::class, 'deleteIssue'])->name('deleteIssue');
 
+//- /issue/edit/{id} (get)
+Route::get('/issue/edit/{id}', [IssueController::class, 'editIssue'])->name('editIssue');
