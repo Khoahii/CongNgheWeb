@@ -94,49 +94,56 @@
 
 <body>
     <div class="container">
-        <h1>Thêm Vấn Đề</h1>
-        <form action="{{ route('createIssuePost') }}" method="POST">
+        <h1>Sửa Vấn Đề</h1>
+        <form action="{{ route('editIssuePatch', $issue->id) }}" method="POST">
             @csrf
+            @method('PATCH')
             <div class="form-group">
                 <label for="computer_id">Máy Tính:</label>
                 <select name="computer_id" id="computer_id" required>
-                    @foreach($computers as $computer)
-                        <option value="{{ $computer->id }}">{{ $computer->computer_name }} ({{ $computer->model }})</option>
+                    @foreach ($computers as $computer)
+                        <option {{ $computer_isSelect == $computer->computer_name ? 'selected' : '' }}
+                            value="{{ $computer->id }}">
+                            {{ $computer->computer_name }} ({{ $computer->model }})
+                        </option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="reported_by">Người Báo Cáo:</label>
-                <input type="text" id="reported_by" name="reported_by" value="{{ old('reported_by') }}">
+                <input type="text" id="reported_by" name="reported_by" value={{ $issue->reported_by }} required>
             </div>
 
             <div class="form-group">
                 <label for="reported_date">Ngày Báo Cáo:</label>
-                <input type="datetime-local" id="reported_date" name="reported_date" value="{{ old('reported_date') }}" required>
+                <input type="datetime-local" id="reported_date" name="reported_date" value="{{ $issue->reported_date }}"
+                    required>
             </div>
 
             <div class="form-group">
                 <label for="description">Mô Tả Vấn Đề:</label>
-                <textarea id="description" name="description" rows="4" required>{{ old('description') }}</textarea>
+                <textarea id="description" name="description" rows="4" required>{{ $issue->description }}</textarea>
             </div>
 
             <div class="combo">
                 <div class="form-group">
                     <label for="urgency">Mức Độ:</label>
                     <select name="urgency" id="urgency" required>
-                        <option value="Low" {{ old('urgency') == 'Low' ? 'selected' : '' }}>Thấp</option>
-                        <option value="Medium" {{ old('urgency') == 'Medium' ? 'selected' : '' }}>Trung Bình</option>
-                        <option value="High" {{ old('urgency') == 'High' ? 'selected' : '' }}>Cao</option>
+                        <option value="Low" {{ $issue->urgency == 'Low' ? 'selected' : '' }}>Thấp</option>
+                        <option value="Medium" {{ $issue->urgency == 'Medium' ? 'selected' : '' }}>Trung Bình</option>
+                        <option value="High" {{ $issue->urgency == 'High' ? 'selected' : '' }}>Cao</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="status">Trạng Thái:</label>
                     <select name="status" id="status" required>
-                        <option value="Open" {{ old('status') == 'Open' ? 'selected' : '' }}>Mở</option>
-                        <option value="In Progress" {{ old('status') == 'In Progress' ? 'selected' : '' }}>Đang Xử Lý</option>
-                        <option value="Resolved" {{ old('status') == 'Resolved' ? 'selected' : '' }}>Đã Giải Quyết</option>
+                        <option value="Open" {{ $issue->status == 'Open' ? 'selected' : '' }}>Mở</option>
+                        <option value="In Progress" {{ $issue->status == 'In Progress' ? 'selected' : '' }}>Đang Xử Lý
+                        </option>
+                        <option value="Resolved" {{ $issue->status == 'Resolved' ? 'selected' : '' }}>Đã Giải Quyết
+                        </option>
                     </select>
                 </div>
             </div>

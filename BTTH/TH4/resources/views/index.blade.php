@@ -54,7 +54,7 @@
                                 <td>{{ $issue->urgency }}</td>
                                 <td>{{ $issue->status }}</td>
                                 <td>
-                                    <a href="#" class="edit"><i
+                                    <a href="{{ route('editIssue', $issue->id) }}" class="edit"><i
                                             class="material-icons">&#xE254;</i></a>
                                     <a class="delete btn-delete" data-id={{ $issue->id }}>
                                         <i class="material-icons">&#xE872;</i>

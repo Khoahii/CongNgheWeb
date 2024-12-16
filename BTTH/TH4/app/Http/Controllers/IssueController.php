@@ -48,7 +48,7 @@ class IssueController extends Controller
 
   public function createIssuePost(Request $req)
   {
-    // Step 1: Validate the request data
+    //-validate
     $validatedData = $req->validate([
       'computer_id' => 'required|exists:computers,id',  // Kiểm tra xem máy tính có tồn tại trong bảng computers không
       'reported_by' => 'required|string|max:50',  // Báo cáo bởi, tối đa 50 ký tự
@@ -58,7 +58,7 @@ class IssueController extends Controller
       'status' => 'required|in:Open,In Progress,Resolved',  // Trạng thái, chọn trong các giá trị cho trước
     ]);
 
-    // Step 2: Create the issue record in the database
+    //-gắn dữ liệu
     Issue::create([
       'computer_id' => $validatedData['computer_id'],
       'reported_by' => $validatedData['reported_by'],
@@ -70,6 +70,53 @@ class IssueController extends Controller
 
     return redirect('/issue');
   }
+
+  //- /issue/edit/{id} (get)
+  public function editIssue($id){
+    //- lay ra cac computer
+    $computers = Computer::all();
+
+    //- lay ra issue
+    $issue = Issue::find($id);
+    $computer_isSelect = $issue->computer->computer_name;
+
+    return view("Issue.edit", [
+      'computers' => $computers,
+      'issue' => $issue,
+      'computer_isSelect' => $computer_isSelect,
+    ]);
+  }
+
+  //- /issue/edit/{id} (patch)
+  public function editIssuePatch(Request $req, $id)
+  {
+    //-validate
+    $validatedData = $req->validate([
+        'computer_id' => 'required|exists:computers,id',  // Kiểm tra xem máy tính có tồn tại trong bảng computers không
+        'reported_by' => 'required|string|max:50',  // Báo cáo bởi, tối đa 50 ký tự
+        'reported_date' => 'required|date',  // Ngày báo cáo, phải là ngày hợp lệ
+        'description' => 'required|string',  // Mô tả sự cố
+        'urgency' => 'required|in:Low,Medium,High',  // Mức độ khẩn cấp, chọn trong các giá trị cho trước
+        'status' => 'required|in:Open,In Progress,Resolved',  // Trạng thái, chọn trong các giá trị cho trước
+      ]);
+
+    // Tim dua can sưa
+    $issue = Issue::find($id);
+
+
+    //- gán lại dữ liệu cần sửa
+    $issue->computer_id = $validatedData['computer_id'];
+    $issue->reported_by = $validatedData['reported_by'];
+    $issue->reported_date = $validatedData['reported_date'];
+    $issue->description = $validatedData['description'];
+    $issue->urgency = $validatedData['urgency'];
+    $issue->status = $validatedData['status'];
+
+    $issue->save();
+
+    return redirect('/issue');
+  }
+
 
   //-delete issue
   public function deleteIssue($id){

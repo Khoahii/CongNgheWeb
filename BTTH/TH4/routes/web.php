@@ -17,3 +17,6 @@ Route::delete('/issue/delete/{id}', [IssueController::class, 'deleteIssue'])->na
 
 //- /issue/edit/{id} (get)
 Route::get('/issue/edit/{id}', [IssueController::class, 'editIssue'])->name('editIssue');
+
+//- /issue/edit/{id} (patch)
+Route::patch('/issue/edit/{id}', [IssueController::class, 'editIssuePatch'])->name('editIssuePatch');
