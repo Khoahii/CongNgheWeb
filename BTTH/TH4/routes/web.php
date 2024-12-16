@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IssueController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//- trang index
+Route::get('/issue', [IssueController::class, 'index']);
